@@ -1,0 +1,15 @@
+f = open("rosalind_bins.txt", "r")
+
+n = f.readline()
+m = f.readline()
+A = list(map(int, f.readline().split()))
+K = list(map(int, f.readline().split()))
+
+R = []
+
+for k in K:
+    if k in A:
+        R.append(A.index(k) + 1)
+    if k not in A:
+        R.append(-1)
+print(*R)
