@@ -1,0 +1,14 @@
+f = open("rosalind_maj (1).txt", "r")
+
+k, n = map(int, f.readline().split())
+R = []
+
+for x in range(k):
+    A = list(map(int, f.readline().split()))
+    c = -1
+    for a in set(A):
+        if A.count(a) > (n/2):
+            c = a
+    R.append(c)
+        
+print(*R)
