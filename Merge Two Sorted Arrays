@@ -1,4 +1,11 @@
 f = open("rosalind_mer.txt", "r")
 n, A = f.readline(), list(map(int, f.readline().split()))
 m, B = f.readline(), list(map(int, f.readline().split()))
-print(*sorted(A+B))
+R = []
+R += A
+for b in B:
+    for r in R:
+        if b < r:
+            R.insert(R.index(r), b)
+            break
+print(*R)
