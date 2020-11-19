@@ -1,0 +1,15 @@
+f = open("rosalind_par.txt", "r")
+n = int(f.readline())
+A = list(map(int, f.readline().split()))
+
+k = A[0]
+min = []
+maj = []
+kk = []
+
+for a in A:
+    if a < k: min.append(a)
+    elif a == k: kk.append(a)
+    else: maj.append(a)
+
+print(*min + kk + maj)
