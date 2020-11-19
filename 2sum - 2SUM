@@ -1,0 +1,14 @@
+f = open("rosalind_2sum.txt", "r")
+K, n = map(int, f.readline().split())
+
+def two_sum(A):
+    for p in range(len(A)):
+        if -A[p] in A[p+1:]:
+            for q in range(p+1, len(A)):
+                if(A[p] + A[q] == 0):
+                    return [p+1, q+1]
+    return [-1]
+
+for k in range(K):
+    A = list(map(int, f.readline().split()))
+    print(*two_sum(A))
