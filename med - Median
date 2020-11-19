@@ -1,0 +1,4 @@
+f = open("rosalind_med.txt", "r")
+n, A, k = int(f.readline()), list(map(int, f.readline().split())), int(f.readline())
+A.sort()
+print(A[k-1])
