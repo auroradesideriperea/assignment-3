@@ -1,0 +1,13 @@
+f = open("rosalind_inv.txt", "r")
+n = int(f.readline())
+A = list(map(int, f.readline().split()))
+
+sA = sorted(A)
+res = 0
+
+while len(A) > 0:
+    inv = sA.index(A[0])
+    res += inv
+    sA.pop(inv)
+    A.pop(0)
+print(res)
