@@ -1,0 +1,18 @@
+f = open("rosalind_3sum.txt", "r")
+K, _ = map(int, f.readline().split())
+
+def two_sum(A, t2=0):
+    d = {}
+    for i in range(len(A)):
+        if A[i] in d: return (d[A[i]]+1, i+1)
+        else: d[t2-A[i]] = i
+    return -1
+def three_sum(A, t3=0):
+    for i in range(len(A)):
+        res = two_sum(A[i+1:], t2=t3-A[i])
+        if res != -1: return [i+1, i+1+res[0], i+1+res[1]]
+    return [-1]
+
+for k in range(K):
+    A = list(map(int, f.readline().split()))
+    print(*three_sum(A))
